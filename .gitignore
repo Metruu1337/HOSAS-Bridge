@@ -1,0 +1,9 @@
+.tools/
+**/bin/
+**/obj/
+artifacts/
+TestResults/
+dependencies/*.exe
+dependencies/*.dll
+.vs/
+*.user
