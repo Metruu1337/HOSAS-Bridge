@@ -6,7 +6,7 @@
 
 HOSAS Bridge pomaga, gdy gra myli identyczne joysticki. Łączy rozpoznawanie urządzeń, mapowanie, wirtualny kontroler i ukrywanie fizycznych drążków w jednej aplikacji Windows.
 
-**0.9.0-beta.1 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
+**0.9.0-beta.2 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
 
 ## Możliwości
 

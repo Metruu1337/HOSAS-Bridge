@@ -1,6 +1,6 @@
 # Public beta engineering report
 
-Candidate: 0.9.0-beta.1. This is preparation for public release, not a claim of completed hardware acceptance or executed public CI.
+Candidate: 0.9.0-beta.2. This is preparation for public release, not a claim of completed hardware acceptance or executed public CI.
 
 1. Existing architecture: nine modular projects, WPF MVVM, dedicated timed input worker, native adapters and three test projects. No initial Git history/remote was present.
 2. Changes: generalized roles and eight axes/capabilities; portable schema 2/local bindings; presets in data; configurable role routing; inherited mode transforms/buttons; setup guide; axis preview/calibration; About/build/trust metadata.
@@ -15,12 +15,12 @@ Candidate: 0.9.0-beta.1. This is preparation for public release, not a claim of 
 11. Documentation: bilingual README/security/FAQ/community drafts, contributor/conduct/security policies, issue/PR templates, extension/build/release/manual testing guides.
 12. Automated evidence: 94 tests (48 Core, 39 Profiles/localization/settings, 7 Integration) passed before final packaging; final TRX included in build artifacts. No coverage removed.
 13. Build/analyzers: Release, warnings-as-errors, deterministic compilation, pinned toolchain/NuGet lockfiles. Final packaging must finish successfully before delivery.
-14. Artifacts: artifacts/HOSASBridge-0.9.0-beta.1-win-x64.zip and artifacts/installer/HOSASBridge-0.9.0-beta.1-win-x64-Setup.exe.
+14. Artifacts: artifacts/HOSASBridge-0.9.0-beta.2-win-x64.zip and artifacts/installer/HOSASBridge-0.9.0-beta.2-win-x64-Setup.exe.
 15. Inventory: artifacts/SHA256SUMS.txt, artifacts/SBOM.cdx.json, artifacts/build-metadata.json and THIRD-PARTY-NOTICES.md.
 16. Not hardware-tested: this new beta's clean install/upgrade/uninstall, game startup order, unplug/replug, sleep/resume, changed USB port, mixed controllers and DPI/keyboard navigation. Earlier owner confirmed T.16000M/WARDOGS gameplay only.
 17. Exact owner checklist: docs/HARDWARE_ACCEPTANCE.md (A–M, installation, privacy, DPI and screenshot checks). Game-before-bridge after reboot is a release blocker.
 18. Limits: no actual public repository/CI/provenance yet; no publisher certificate; one vJoy output/one device per semantic role; advanced mode overrides through JSON; driver reboot/dialog behavior depends on Windows/vendor; no latency or setup-duration measurement.
-19. Recommended first version: 0.9.0-beta.1. Promote to 1.0 only after manual acceptance and public release verification.
+19. Recommended first version: 0.9.0-beta.2. Promote to 1.0 only after manual acceptance and public release verification.
 20. Signing: app/installer unsigned. Bundled vendor driver installer signatures checked separately; native SDK DLL hash-pinned.
 21. Source revision: exact commit/dirty marker and tag recorded by Build.ps1 in build-metadata.json and About. Local candidates have no public attestation. No fabricated repository/tag.
 

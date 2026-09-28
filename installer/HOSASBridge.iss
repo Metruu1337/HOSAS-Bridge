@@ -1,4 +1,4 @@
-#define AppVersion "0.9.0-beta.1"
+#define AppVersion "0.9.0-beta.2"
 [Setup]
 SetupIconFile=..\src\HOSASBridge.App\Assets\bridge.ico
 AppId={{E524A77C-B48A-4E13-8E38-FA9E3A97668D}

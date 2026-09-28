@@ -1,4 +1,4 @@
-# Release notes — 0.9.0-beta.1 candidate
+# Release notes — 0.9.0-beta.2 candidate
 
 Filename retained from the requested publication checklist; this is NOT a 1.0 release.
 

@@ -1,4 +1,4 @@
-# Informacje o wydaniu — kandydat 0.9.0-beta.1
+# Informacje o wydaniu — kandydat 0.9.0-beta.2
 
 Nazwa pliku wynika z listy publikacyjnej; to NIE jest wydanie 1.0.
 

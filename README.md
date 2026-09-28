@@ -6,7 +6,7 @@
 
 Clean controller routing for games that don’t play nicely with multiple sticks. HOSAS Bridge combines controller identification, mapping, a persistent virtual joystick and device hiding in one Windows application.
 
-**0.9.0-beta.1 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
+**0.9.0-beta.2 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
 
 ## Features
 

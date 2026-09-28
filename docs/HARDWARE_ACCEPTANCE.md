@@ -1,6 +1,6 @@
 # Owner acceptance checklist
 
-Record version/commit, Windows/game versions, hardware and USB layout. All boxes are pending for 0.9.0-beta.1 until personally executed. Prior owner gameplay confirmation does not cover the entire new beta.
+Record version/commit, Windows/game versions, hardware and USB layout. All boxes are pending for 0.9.0-beta.2 until personally executed. Prior owner gameplay confirmation does not cover the entire new beta.
 
 - [ ] A: Connect two T.16000M; movement identification assigns Right/Left correctly.
 - [ ] B: Right horizontal → virtual X / Roll.

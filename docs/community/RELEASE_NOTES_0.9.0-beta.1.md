@@ -1,11 +1,11 @@
-# HOSAS Bridge 0.9.0-beta.1 — early testing release
+# HOSAS Bridge 0.9.0-beta.2 — early testing release
 
 A Windows controller-routing utility built around a dual-T.16000M setup in WARDOGS. This is an early beta for testing, not a stable 1.0 release.
 
 ## Download
 
-- **HOSASBridge-0.9.0-beta.1-win-x64-Setup.exe**: installer for Windows x64.
-- **HOSASBridge-0.9.0-beta.1-win-x64.zip**: portable application; vJoy/HidHide still require installation when needed.
+- **HOSASBridge-0.9.0-beta.2-win-x64-Setup.exe**: installer for Windows x64.
+- **HOSASBridge-0.9.0-beta.2-win-x64.zip**: portable application; vJoy/HidHide still require installation when needed.
 - **SHA256SUMS.txt**, **SBOM.cdx.json**, **build-metadata.json**: checksums, component inventory and source/build identification.
 
 The application and installer are unsigned. Bundled vendor driver installers are separately signed. Do not disable Windows security protections to install. Keep existing working drivers when upgrading.

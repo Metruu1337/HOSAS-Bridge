@@ -99,19 +99,19 @@
       "hosasbridge.infrastructure": {
         "type": "Project",
         "dependencies": {
-          "HOSASBridge.Core": "[0.9.0-beta.1, )"
+          "HOSASBridge.Core": "[0.9.0-beta.2, )"
         }
       },
       "hosasbridge.output.vjoy": {
         "type": "Project",
         "dependencies": {
-          "HOSASBridge.Core": "[0.9.0-beta.1, )"
+          "HOSASBridge.Core": "[0.9.0-beta.2, )"
         }
       },
       "hosasbridge.profiles": {
         "type": "Project",
         "dependencies": {
-          "HOSASBridge.Core": "[0.9.0-beta.1, )"
+          "HOSASBridge.Core": "[0.9.0-beta.2, )"
         }
       }
     },

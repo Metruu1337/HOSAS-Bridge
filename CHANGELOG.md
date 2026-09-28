@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.9.0-beta.1 — beta candidate
+## 0.9.0-beta.2 — beta candidate
 
 Preserved WARDOGS Hybrid, persistent vJoy and Pitch-only MINIGUN. Added generic roles/eight axes/capabilities, portable schema 2 with local bindings, generic preset, mode transform/button overrides, duplicate/reset, guided setup, curve/calibration preview, About/build metadata, locale-based PL/EN and catalog validation.
 
