@@ -1,3 +1,5 @@
+<img src="src/HOSASBridge.App/Assets/bridge.png" alt="HOSAS Bridge" width="128" />
+
 # HOSAS Bridge
 
 [English](README.md) | [Polski](README.pl.md)

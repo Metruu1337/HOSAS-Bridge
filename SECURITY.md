@@ -2,7 +2,7 @@
 
 Do not post exploitable vulnerabilities, sensitive logs or machine identifiers in public issues.
 
-On GitHub use Security → Advisories → Report a vulnerability if private reporting is enabled. The maintainer must enable it before publication. No repository/private contact is configured in this checkout; no address is invented. If unavailable, request a private channel without posting details.
+Use [GitHub private vulnerability reporting](https://github.com/Metruu1337/HOSAS-Bridge/security/advisories/new). Private reporting is enabled. If unavailable, request a private channel without posting details.
 
 Supported candidate: 0.9.0-beta.2. Include version/commit, reproduction, impact and redacted evidence. No response-time guarantee.
 
