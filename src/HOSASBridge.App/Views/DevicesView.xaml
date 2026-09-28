@@ -1,0 +1,70 @@
+<UserControl x:Class="HOSASBridge.App.Views.DevicesView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:loc="clr-namespace:HOSASBridge.App.Localization" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+
+  <Border Style="{StaticResource Card}" Background="#EAF5F2">
+   <StackPanel>
+    <DockPanel><TextBlock Text="{Binding Wizard.Progress}" DockPanel.Dock="Right" HorizontalAlignment="Right" FontSize="18"/><TextBlock Text="{Binding Wizard.Title}" Style="{StaticResource Heading}"/></DockPanel>
+    <StackPanel Visibility="{Binding Wizard.Step0, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Two sticks in. Clean game input out.'}" FontSize="20" Margin="0,8"/>
+     <TextBlock Text="{loc:Text 'Route your controllers through one persistent virtual controller. This guide checks drivers, identifies your sticks and tests live input. Your existing WARDOGS setup is preserved until you apply a preset.'}" Style="{StaticResource Note}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step1, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{Binding VirtualStatus}" Style="{StaticResource Note}"/>
+     <WrapPanel><Button Content="{loc:Text 'Check status'}" Command="{Binding Devices.Check}"/><Button Content="{loc:Text 'Install vJoy'}" Command="{Binding Devices.InstallVJoy}"/><Button Content="{loc:Text 'Install HidHide'}" Command="{Binding Devices.InstallHidHide}"/><Button Content="{loc:Text 'Repair virtual device'}" Command="{Binding Devices.RepairVirtual}"/></WrapPanel>
+     <Button Content="{loc:Text 'Allow this application through HidHide'}" Command="{Binding Devices.AllowApplication}" HorizontalAlignment="Left"/>
+     <TextBlock Text="{Binding Devices.HidingStatus}" Style="{StaticResource Note}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step2, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Connect your controllers. Discovery refreshes automatically.'}" Style="{StaticResource Note}"/>
+     <ItemsControl ItemsSource="{Binding Devices.Devices}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,6"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step3, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{Binding Devices.Instructions}" Style="{StaticResource Note}"/>
+     <WrapPanel><Button Content="{loc:Text 'Move RIGHT stick'}" Command="{Binding Devices.IdentifyRight}"/><Button Content="{loc:Text 'Move LEFT stick'}" Command="{Binding Devices.IdentifyLeft}"/><Button Content="{loc:Text 'Cancel identification'}" Command="{Binding Devices.CancelIdentification}"/></WrapPanel>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step4, Converter={StaticResource BoolVisibility}}">
+     <ComboBox ItemsSource="{Binding Wizard.Presets}" SelectedItem="{Binding Wizard.SelectedPreset}" HorizontalAlignment="Left"/>
+     <Button Content="{loc:Text 'Apply preset'}" Command="{Binding Wizard.ApplyPreset}" HorizontalAlignment="Left"/>
+     <TextBlock Text="{loc:Text 'WARDOGS: left stick stays native for Collective; right stick feeds vJoy. Applying a preset resets tuning and mode bindings.'}" Style="{StaticResource Note}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step5, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Move each axis and press buttons. RAW values should change. Output stays neutral until the bridge starts.'}" Style="{StaticResource Note}"/>
+     <DataGrid ItemsSource="{Binding Diagnostics.Axes}" IsReadOnly="True" AutoGenerateColumns="False" MaxHeight="220"><DataGrid.Columns>
+      <DataGridTextColumn Header="{loc:Text Axis}" Binding="{Binding Name}" Width="*"/><DataGridTextColumn Header="{loc:Text RAW}" Binding="{Binding Raw, StringFormat=F0}" Width="*"/><DataGridTextColumn Header="{loc:Text PROCESSED}" Binding="{Binding Transformed, StringFormat=F2}" Width="*"/>
+     </DataGrid.Columns></DataGrid><TextBlock Text="{Binding Diagnostics.Buttons}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step6, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Optional: bind a button to switch modes. You can skip this and configure Modes later.'}" Style="{StaticResource Note}"/>
+     <Button Content="{loc:Text 'Press a button to bind'}" Command="{Binding Modes.Bind}" HorizontalAlignment="Left"/><TextBlock Text="{Binding Modes.BindingText}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step7, Converter={StaticResource BoolVisibility}}">
+     <WrapPanel><Button Content="{loc:Text 'Repair Device Hiding'}" Command="{Binding Devices.RepairHiding}"/><Button Content="{loc:Text 'Check status'}" Command="{Binding Devices.Check}"/></WrapPanel>
+     <TextBlock Text="{Binding VirtualStatus}" Style="{StaticResource Note}"/><TextBlock Text="{Binding Devices.HidingStatus}" Style="{StaticResource Note}"/>
+    </StackPanel>
+    <StackPanel Visibility="{Binding Wizard.Step8, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Finish setup, then start the bridge from Dashboard. In WARDOGS, bind vJoy to Roll/Pitch/Yaw and the native left stick to Collective.'}" Style="{StaticResource Note}"/>
+     <Button Content="{loc:Text 'Finish setup'}" Command="{Binding Devices.FinishSetup}" Style="{StaticResource Primary}" HorizontalAlignment="Left"/>
+    </StackPanel>
+    <WrapPanel Margin="0,16,0,0"><Button Content="{loc:Text Back}" Command="{Binding Wizard.Back}"/><Button Content="{loc:Text Next}" Command="{Binding Wizard.Next}" Style="{StaticResource Primary}"/></WrapPanel>
+   </StackPanel>
+  </Border>
+  <Expander Header="{loc:Text 'Device details and repair'}" Margin="0,0,0,16"><StackPanel Margin="0,16,0,0">
+  <WrapPanel><ComboBox ItemsSource="{Binding Devices.Roles}" SelectedItem="{Binding Devices.SelectedRole}"/><Button Content="{loc:Text Identify}" Command="{Binding Devices.IdentifyRole}"/><Button Content="{loc:Text 'Live input test'}" Command="{Binding TestInputs}"/><Button Content="{loc:Text Calibration}" Command="{Binding Calibrate}"/><Button Content="{loc:Text 'Copy Device Info'}" Command="{Binding Devices.CopyDeviceInfo}"/></WrapPanel>
+  <TextBlock Text="{DynamicResource LE0EDDAE28A13}" Style="{StaticResource Heading}"/>
+  <Border Style="{StaticResource Card}" Background="#EAF5F2"><TextBlock Text="{Binding Devices.Instructions}" TextWrapping="Wrap" FontWeight="SemiBold"/></Border>
+  <TextBlock Text="{DynamicResource L81976E88B0D6}" FontWeight="SemiBold" Margin="0,0,0,10"/>
+  <WrapPanel><Button Content="{DynamicResource L6B9F0E922F0A}" Command="{Binding Devices.Check}"/><Button Content="{DynamicResource L64404EBCBC7B}" Command="{Binding Devices.InstallVJoy}"/><Button Content="{DynamicResource LFB8B8F02D37A}" Command="{Binding Devices.InstallHidHide}"/><Button Content="{DynamicResource L59A1585B58A7}" Command="{Binding Devices.RepairVirtual}"/></WrapPanel>
+  <TextBlock Text="{Binding VirtualStatus}" Style="{StaticResource Note}"/>
+  <Button Content="{DynamicResource LF75A584B2820}" Command="{Binding Devices.AllowApplication}" HorizontalAlignment="Left"/>
+  <TextBlock Text="{DynamicResource L5750ABECC363}" FontWeight="SemiBold" Margin="0,8,0,10"/>
+  <WrapPanel><Button Content="{DynamicResource LA85ADEC9652A}" Command="{Binding Devices.IdentifyRight}" Style="{StaticResource Primary}"/><Button Content="{DynamicResource LE296DC6F43B5}" Command="{Binding Devices.IdentifyLeft}"/><Button Content="{DynamicResource L89527452E953}" Command="{Binding Devices.CancelIdentification}"/><Button Content="{DynamicResource LBA39590C0B7E}" Command="{Binding ResetRoles}"/></WrapPanel>
+  <TextBlock Text="{DynamicResource LEC994279E53A}" FontWeight="SemiBold" Margin="0,8,0,10"/>
+  <WrapPanel><Button Content="{DynamicResource L0D797B8B8367}" Command="{Binding Devices.RepairHiding}"/></WrapPanel>
+  <TextBlock Text="{Binding Devices.HidingStatus}" Style="{StaticResource Note}"/>
+  <Button Content="{DynamicResource LDC77820454F5}" Command="{Binding Devices.RestoreHiding}" HorizontalAlignment="Left"/>
+  <TextBlock Text="{DynamicResource L454E8F0C020C}" FontWeight="SemiBold" Margin="0,8,0,10"/>
+  <Button Content="{DynamicResource L35B9350B6660}" Command="{Binding Devices.FinishSetup}" Style="{StaticResource Primary}" HorizontalAlignment="Left"/>
+  <TextBlock Text="{DynamicResource LF009AEC2B98F}" FontWeight="SemiBold" Margin="0,12,0,10"/>
+  <ItemsControl ItemsSource="{Binding Devices.Devices}"><ItemsControl.ItemTemplate><DataTemplate><Border Style="{StaticResource Card}"><TextBlock Text="{Binding}" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12"/></Border></DataTemplate></ItemsControl.ItemTemplate></ItemsControl>
+ </StackPanel></Expander></StackPanel></ScrollViewer>
+</UserControl>

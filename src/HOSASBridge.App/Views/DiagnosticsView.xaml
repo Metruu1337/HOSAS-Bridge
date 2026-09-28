@@ -1,0 +1,11 @@
+<UserControl x:Class="HOSASBridge.App.Views.DiagnosticsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:loc="clr-namespace:HOSASBridge.App.Localization" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+  <TextBlock Text="{DynamicResource L0610DC6448D7}" Style="{StaticResource Heading}"/><TextBlock Text="{Binding Performance}" Style="{StaticResource Note}"/>
+  <DataGrid ItemsSource="{Binding Axes}" IsReadOnly="True" AutoGenerateColumns="False"><DataGrid.Columns>
+   <DataGridTextColumn Header="{DynamicResource LA7B7687F615A}" Binding="{Binding Name}" Width="*"/><DataGridTextColumn Header="{DynamicResource L848123D14F84}" Binding="{Binding Raw, StringFormat=F0}" Width="80"/><DataGridTextColumn Header="{DynamicResource L6E62E3AEA56B}" Binding="{Binding Normalized, StringFormat=F3}" Width="100"/><DataGridTextColumn Header="{DynamicResource LCEF7968D3DF1}" Binding="{Binding Transformed, StringFormat=F3}" Width="110"/><DataGridTextColumn Header="{DynamicResource L67C262B3B56F}" Binding="{Binding Output, StringFormat=F3}" Width="105"/><DataGridTextColumn Header="{DynamicResource L293D404A500F}" Binding="{Binding Destination}" Width="2*"/>
+  </DataGrid.Columns></DataGrid>
+  <Border Style="{StaticResource Card}"><StackPanel><TextBlock Text="{Binding Buttons}" TextWrapping="Wrap" FontFamily="Consolas"/><TextBlock Text="{Binding Hats}" TextWrapping="Wrap" Margin="0,12,0,0"/></StackPanel></Border>
+  <TextBlock Text="{loc:Text 'Checks virtual ownership by writing only neutral input, then releases it. Stop the bridge first.'}" Style="{StaticResource Note}"/>
+  <WrapPanel><Button Content="{loc:Text 'Open logs folder'}" Command="{Binding OpenLogs}"/><Button Content="{loc:Text 'Neutral output check'}" Command="{Binding TestOutput}"/><Button Content="{DynamicResource LC6CF7BD48BFF}" Command="{Binding Export}"/><Button Content="{DynamicResource L9C0E91D1D6F8}" Command="{Binding OpenControllers}"/></WrapPanel>
+ </StackPanel></ScrollViewer>
+</UserControl>

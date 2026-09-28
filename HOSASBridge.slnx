@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/HOSASBridge.App/HOSASBridge.App.csproj" />
+    <Project Path="src/HOSASBridge.Core/HOSASBridge.Core.csproj" />
+    <Project Path="src/HOSASBridge.DeviceHiding/HOSASBridge.DeviceHiding.csproj" />
+    <Project Path="src/HOSASBridge.Diagnostics/HOSASBridge.Diagnostics.csproj" />
+    <Project Path="src/HOSASBridge.Infrastructure/HOSASBridge.Infrastructure.csproj" />
+    <Project Path="src/HOSASBridge.Input.DirectInput/HOSASBridge.Input.DirectInput.csproj" />
+    <Project Path="src/HOSASBridge.Output.VJoy/HOSASBridge.Output.VJoy.csproj" />
+    <Project Path="src/HOSASBridge.Profiles/HOSASBridge.Profiles.csproj" />
+    <Project Path="src/HOSASBridge.Setup/HOSASBridge.Setup.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HOSASBridge.Core.Tests/HOSASBridge.Core.Tests.csproj" />
+    <Project Path="tests/HOSASBridge.Integration.Tests/HOSASBridge.Integration.Tests.csproj" />
+    <Project Path="tests/HOSASBridge.Profiles.Tests/HOSASBridge.Profiles.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,11 @@
+<UserControl x:Class="HOSASBridge.App.Views.ModesView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+  <TextBlock Text="{DynamicResource LACACD868F036}" Style="{StaticResource Heading}"/>
+  <TextBlock Text="{DynamicResource L8CB3DB559D6C}" Style="{StaticResource Note}"/>
+  <DataGrid ItemsSource="{Binding Modes}" AutoGenerateColumns="True" CanUserAddRows="True"/>
+  <WrapPanel><ComboBox ItemsSource="{Binding Roles}" SelectedItem="{Binding BindingRole}"/><StackPanel Width="180"><TextBlock Text="{DynamicResource LCD6E5A2BE0BE}"/><TextBox Text="{Binding BaseMode}"/></StackPanel><StackPanel Width="180"><TextBlock Text="{DynamicResource L75F1E987EB15}"/><TextBox Text="{Binding ActiveMode}"/></StackPanel><StackPanel><TextBlock Text="{DynamicResource L1302B5A21A14}"/><ComboBox ItemsSource="{Binding Behaviors}" SelectedItem="{Binding Behavior}"/></StackPanel></WrapPanel>
+  <WrapPanel><Button Content="{DynamicResource L7AFF3348FB77}" Command="{Binding Bind}" Style="{StaticResource Primary}"/><Button Content="{DynamicResource LFABB454F4F28}" Command="{Binding Clear}"/><Button Content="{DynamicResource LE7A07678BC67}" Command="{Binding Save}"/></WrapPanel>
+  <Border Style="{StaticResource Card}"><TextBlock Text="{Binding BindingText}" TextWrapping="Wrap"/></Border>
+  <TextBlock Text="{DynamicResource L9B61572176AE}" Style="{StaticResource Note}"/>
+ </StackPanel></ScrollViewer>
+</UserControl>

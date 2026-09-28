@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
+ <ItemGroup>
+  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+  <PackageReference Include="xunit" Version="2.9.3" />
+  <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5"><PrivateAssets>all</PrivateAssets></PackageReference>
+  <ProjectReference Include="../../src/HOSASBridge.Core/HOSASBridge.Core.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Profiles/HOSASBridge.Profiles.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Infrastructure/HOSASBridge.Infrastructure.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Output.VJoy/HOSASBridge.Output.VJoy.csproj" />
+  <Using Include="Xunit" />
+ </ItemGroup>
+</Project>

@@ -1,0 +1,21 @@
+<UserControl x:Class="HOSASBridge.App.Views.MappingsView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:loc="clr-namespace:HOSASBridge.App.Localization" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+  <TextBlock Text="{DynamicResource L0A506E739615}" Style="{StaticResource Heading}"/>
+  <WrapPanel><StackPanel Width="240"><TextBlock Text="{DynamicResource LD3663280E101}"/><TextBox Text="{Binding Name}"/></StackPanel><StackPanel><TextBlock Text="{DynamicResource LBC9B2736E6FA}"/><ComboBox ItemsSource="{Binding Routings}" SelectedItem="{Binding Routing}"/></StackPanel><StackPanel Width="130"><TextBlock Text="{DynamicResource L6DA0CC82F5C6}"/><TextBox Text="{Binding DeviceId}"/></StackPanel></WrapPanel>
+  <TextBlock Text="{DynamicResource L39853ED37567}" Style="{StaticResource Note}"/>
+  <WrapPanel><Button Content="{DynamicResource LBB2BF17579AC}" Command="{Binding Save}" Style="{StaticResource Primary}"/><Button Content="{DynamicResource LDAFE05124D75}" Command="{Binding Import}"/><Button Content="{DynamicResource L2DA601B94B14}" Command="{Binding Export}"/><Button Content="{DynamicResource L7F88F7D3F45F}" Command="{Binding NewProfile}"/></WrapPanel>
+  <WrapPanel><Button Content="{loc:Text 'Add axis mapping'}" Command="{Binding AddAxis}"/><Button Content="{loc:Text Duplicate}" Command="{Binding Duplicate}"/><Button Content="{loc:Text 'Reset to preset defaults'}" Command="{Binding ResetPreset}"/></WrapPanel>
+  <Expander Header="{loc:Text 'Advanced role routing'}"><StackPanel>
+   <CheckBox Content="{loc:Text 'Override Hybrid / Combined defaults'}" IsChecked="{Binding CustomizeRoutes}"/>
+   <DataGrid ItemsSource="{Binding RoleRoutes}" AutoGenerateColumns="True" IsEnabled="{Binding CustomizeRoutes}"/>
+  </StackPanel></Expander>
+  <DataGrid ItemsSource="{Binding Axes}" AutoGenerateColumns="False"><DataGrid.Columns><DataGridTextColumn Header="{loc:Text Physical}" Binding="{Binding FriendlySource}" IsReadOnly="True" Width="*"/><DataGridTextColumn Header="{loc:Text 'Game meaning'}" Binding="{Binding Meaning, Converter={StaticResource LocalizedValue}}" Width="*"/>
+   <DataGridTextColumn Header="{DynamicResource L2D17B6036D21}" Binding="{Binding Role, Converter={StaticResource LocalizedValue}}" Width="*"/><DataGridTextColumn Header="{DynamicResource L5C3164BE8104}" Binding="{Binding Source, Converter={StaticResource LocalizedValue}}" Width="*"/><DataGridTextColumn Header="{DynamicResource LE39B319EC0A8}" Binding="{Binding Target}" Width="2*"/>
+  </DataGrid.Columns></DataGrid>
+  <TextBlock Text="{DynamicResource L2DD7A636D136}" FontWeight="SemiBold"/>
+  <DataGrid ItemsSource="{Binding Buttons}" AutoGenerateColumns="True" CanUserAddRows="True" MaxHeight="290"/>
+  <TextBlock Text="{DynamicResource L71FCE8DFD651}" FontWeight="SemiBold"/><DataGrid ItemsSource="{Binding Povs}" AutoGenerateColumns="True" CanUserAddRows="True"/>
+  <TextBlock Text="{DynamicResource L6E4D05A4722E}" FontWeight="SemiBold"/><WrapPanel><TextBox Text="{Binding ProcessName}" Width="300"/><Button Content="{DynamicResource L5F4B0A3E957A}" Command="{Binding SelectProcess}"/></WrapPanel>
+  <TextBlock Text="{DynamicResource LED8A9B9EE90E}" Style="{StaticResource Note}"/>
+ </StackPanel></ScrollViewer>
+</UserControl>

@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../HOSASBridge.Core/HOSASBridge.Core.csproj" /><EmbeddedResource Include="Presets/controllers.json" LogicalName="HOSASBridge.controllers.json" /><EmbeddedResource Include="Presets/wardogs.json" LogicalName="HOSASBridge.wardogs.json" /></ItemGroup></Project>

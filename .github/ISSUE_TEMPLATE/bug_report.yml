@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a reproducible problem
+body:
+  - type: markdown
+    attributes:
+      value: "Do not post private identifiers, credentials or unreviewed logs. Security issues follow SECURITY.md."
+  - type: textarea
+    id: field_0
+    attributes:
+      label: "App version and commit"
+    validations:
+      required: true
+  - type: textarea
+    id: field_1
+    attributes:
+      label: "Windows version"
+    validations:
+      required: true
+  - type: textarea
+    id: field_2
+    attributes:
+      label: "Controller models / game"
+    validations:
+      required: false
+  - type: textarea
+    id: field_3
+    attributes:
+      label: "Routing mode"
+    validations:
+      required: false
+  - type: textarea
+    id: field_4
+    attributes:
+      label: "Steps to reproduce"
+    validations:
+      required: false
+  - type: textarea
+    id: field_5
+    attributes:
+      label: "Expected and actual behavior"
+    validations:
+      required: false
+  - type: textarea
+    id: field_6
+    attributes:
+      label: "Sanitized diagnostic evidence (optional)"
+    validations:
+      required: false

@@ -1,0 +1,36 @@
+<UserControl x:Class="HOSASBridge.App.Views.AxisTuningView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:loc="clr-namespace:HOSASBridge.App.Localization" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+  <TextBlock Text="{DynamicResource LEF2D8D02A8CA}" Style="{StaticResource Heading}"/>
+  <TextBlock Text="{DynamicResource L3A4D2EDBDB82}" Style="{StaticResource Note}"/>
+  <Button Content="{DynamicResource LB3CD22B3BC6C}" Command="{Binding Save}" Style="{StaticResource Primary}" HorizontalAlignment="Left"/>
+  <Border Style="{StaticResource Card}"><StackPanel>
+   <ComboBox ItemsSource="{Binding Axes}" SelectedItem="{Binding Tuning.Selected}" DisplayMemberPath="Label" ItemTemplate="{x:Null}" HorizontalAlignment="Left"/>
+   <WrapPanel>
+    <StackPanel Width="330" Margin="0,0,24,0">
+     <Canvas Width="320" Height="160" Background="#EFF5F6" ClipToBounds="True"><Line X1="0" Y1="80" X2="320" Y2="80" Stroke="#B9C8CF"/><Line X1="160" Y1="0" X2="160" Y2="160" Stroke="#B9C8CF"/><Polyline Points="{Binding Tuning.Points}" Stroke="#0E756E" StrokeThickness="3"/></Canvas>
+     <TextBlock Text="{Binding Tuning.Live}" TextWrapping="Wrap" Margin="0,12"/>
+    </StackPanel>
+    <StackPanel Width="300">
+     <CheckBox Content="{loc:Text 'Invert axis'}" IsChecked="{Binding Tuning.Selected.Invert}"/>
+     <TextBlock Text="{loc:Text 'Center deadzone'}"/><Slider Minimum="0" Maximum="0.4" Value="{Binding Tuning.Selected.Deadzone}"/>
+     <TextBlock Text="{loc:Text Sensitivity}"/><Slider Minimum="0.1" Maximum="2" Value="{Binding Tuning.Selected.Sensitivity}"/>
+     <TextBlock Text="{loc:Text 'Response curve'}"/><ComboBox ItemsSource="{Binding Curves}" SelectedItem="{Binding Tuning.Selected.Curve}"/>
+     <Slider Minimum="0.1" Maximum="4" Value="{Binding Tuning.Selected.Exponent}"/>
+    </StackPanel>
+   </WrapPanel>
+   <WrapPanel><Button Content="{loc:Text 'Begin calibration'}" Command="{Binding Tuning.BeginCalibration}"/><Button Content="{loc:Text 'Finish calibration'}" Command="{Binding Tuning.FinishCalibration}"/></WrapPanel>
+  </StackPanel></Border>
+  <Expander Header="{loc:Text 'Advanced axis values'}"><StackPanel>
+  <DataGrid ItemsSource="{Binding Axes}" AutoGenerateColumns="False"><DataGrid.Columns>
+   <DataGridTextColumn Header="{DynamicResource L14736A2EB9F4}" Binding="{Binding Role, Converter={StaticResource LocalizedValue}}" IsReadOnly="True"/><DataGridTextColumn Header="{DynamicResource L32B73CAEFAC1}" Binding="{Binding Source, Converter={StaticResource LocalizedValue}}" IsReadOnly="True"/>
+   <DataGridCheckBoxColumn Header="{DynamicResource L7E04F2FFB933}" Binding="{Binding Invert}"/><DataGridTextColumn Header="{DynamicResource L2472E063A71D}" Binding="{Binding Deadzone}"/><DataGridTextColumn Header="{DynamicResource LDDB916C6683C}" Binding="{Binding Outer}"/><DataGridTextColumn Header="{DynamicResource LEBB57A260D58}" Binding="{Binding Sensitivity}"/>
+   <DataGridTextColumn Header="{DynamicResource L2A45C07314B2}" Binding="{Binding Curve, Converter={StaticResource LocalizedValue}}"/><DataGridTextColumn Header="{DynamicResource LBB2E09092680}" Binding="{Binding Exponent}"/><DataGridTextColumn Header="{DynamicResource L993F024B650E}" Binding="{Binding Saturation}"/>
+  </DataGrid.Columns></DataGrid>
+  <TextBlock Text="{DynamicResource L252526ECD431}" Style="{StaticResource Heading}"/>
+  <DataGrid ItemsSource="{Binding Axes}" AutoGenerateColumns="False"><DataGrid.Columns>
+   <DataGridTextColumn Header="{DynamicResource L14736A2EB9F4}" Binding="{Binding Role, Converter={StaticResource LocalizedValue}}" IsReadOnly="True" Width="*"/><DataGridTextColumn Header="{DynamicResource L32B73CAEFAC1}" Binding="{Binding Source, Converter={StaticResource LocalizedValue}}" IsReadOnly="True" Width="*"/>
+   <DataGridTextColumn Header="{DynamicResource L735BEEE2E390}" Binding="{Binding Min}" Width="*"/><DataGridTextColumn Header="{DynamicResource LD946067427E9}" Binding="{Binding Center}" Width="*"/><DataGridTextColumn Header="{DynamicResource L66C9AB177708}" Binding="{Binding Max}" Width="*"/>
+  </DataGrid.Columns></DataGrid>
+  <TextBlock Text="{DynamicResource LC2B4BA5ACABD}" Style="{StaticResource Note}"/>
+ </StackPanel></Expander></StackPanel></ScrollViewer>
+</UserControl>

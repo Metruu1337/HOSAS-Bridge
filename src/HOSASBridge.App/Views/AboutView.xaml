@@ -1,0 +1,10 @@
+<UserControl x:Class="HOSASBridge.App.Views.AboutView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:loc="clr-namespace:HOSASBridge.App.Localization">
+ <ScrollViewer VerticalScrollBarVisibility="Auto"><StackPanel Margin="0,24,0,0">
+  <TextBlock Text="HOSAS Bridge" Style="{StaticResource Heading}"/>
+  <TextBlock Text="{Binding Build}" Style="{StaticResource Note}"/>
+  <Border Style="{StaticResource Card}"><TextBlock Text="{Binding Privacy}" TextWrapping="Wrap" FontSize="18"/></Border>
+  <TextBlock Text="{Binding Signing}" Style="{StaticResource Note}"/>
+  <WrapPanel><Button Content="{loc:Text 'Source code'}" Command="{Binding Source}"/><Button Content="{loc:Text 'Security and trust'}" Command="{Binding Security}"/><Button Content="{loc:Text 'Third-party licenses'}" Command="{Binding Licenses}"/></WrapPanel>
+  <TextBlock Text="MIT · HOSAS Bridge contributors" Style="{StaticResource Note}"/>
+ </StackPanel></ScrollViewer>
+</UserControl>

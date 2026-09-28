@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable></PropertyGroup>
+ <ItemGroup>
+  <Content Include="../../src/HOSASBridge.App/Localization/en.json" Link="localization/en.json" CopyToOutputDirectory="PreserveNewest" />
+  <Content Include="../../src/HOSASBridge.App/Localization/pl.json" Link="localization/pl.json" CopyToOutputDirectory="PreserveNewest" />
+  <Content Include="../../src/HOSASBridge.App/*.xaml" Link="localization/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  <Content Include="../../src/HOSASBridge.App/Views/*.xaml" Link="localization/Views/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+  <PackageReference Include="xunit" Version="2.9.3" />
+  <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5"><PrivateAssets>all</PrivateAssets></PackageReference>
+  <ProjectReference Include="../../src/HOSASBridge.Core/HOSASBridge.Core.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Profiles/HOSASBridge.Profiles.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Infrastructure/HOSASBridge.Infrastructure.csproj" />
+  <ProjectReference Include="../../src/HOSASBridge.Output.VJoy/HOSASBridge.Output.VJoy.csproj" />
+  <Using Include="Xunit" />
+ </ItemGroup>
+</Project>
