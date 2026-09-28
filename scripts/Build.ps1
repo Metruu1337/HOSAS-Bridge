@@ -22,7 +22,7 @@ if ($env:BUILD_SOURCE_URL) { $metadata += "-p:RepositoryUrl=$env:BUILD_SOURCE_UR
 Invoke-Dotnet -Arguments @('restore','HOSASBridge.slnx','--locked-mode')
 Invoke-Dotnet -Arguments (@('build','HOSASBridge.slnx','--no-restore','-c','Release') + $metadata)
 Invoke-Dotnet -Arguments @('test','HOSASBridge.slnx','--no-build','-c','Release','--logger','trx','--results-directory','artifacts/test-results')
-Invoke-Dotnet -Arguments (@('publish','src/HOSASBridge.App/HOSASBridge.App.csproj','-c','Release','-r','win-x64','--self-contained','true','-o','artifacts/portable','-p:DebugType=None') + $metadata)
+Invoke-Dotnet -Arguments (@('publish','src/HOSASBridge.App/HOSASBridge.App.csproj','-c','Release','-r','win-x64','--self-contained','true','-o','artifacts/portable','-p:DebugType=None','-p:RestoreLockedMode=true') + $metadata)
 Copy-Item README.pl.md,THIRD-PARTY-NOTICES.md,SECURITY.md,CHANGELOG.md,README.md,ARCHITECTURE.md,DEPENDENCIES.md,BUILDING.md,TROUBLESHOOTING.md,TESTING.md,RELEASE_REPORT.md,LICENSE artifacts/portable
 if (-not $SkipSmoke) { & "$PSScriptRoot/Smoke-Test.ps1" -Executable (Join-Path $root 'artifacts/portable/HOSASBridge.exe') -Language pl }
 if (-not $SkipSmoke) { & "$PSScriptRoot/Smoke-Test.ps1" -Executable (Join-Path $root 'artifacts/portable/HOSASBridge.exe') -Language en }
