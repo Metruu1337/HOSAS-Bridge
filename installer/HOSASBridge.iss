@@ -1,4 +1,4 @@
-#define AppVersion "0.9.0-beta.2"
+#define AppVersion "0.9.0-beta.3"
 [Setup]
 SetupIconFile=..\src\HOSASBridge.App\Assets\bridge.ico
 AppId={{E524A77C-B48A-4E13-8E38-FA9E3A97668D}
@@ -42,8 +42,6 @@ polish.DeleteSettings=Usunąć ustawienia, profile i logi HOSAS Bridge bieżące
 english.DeleteSettings=Delete HOSAS Bridge settings, profiles and logs for the current user?
 
 [Tasks]
-Name: vjoy; Description: "{cm:InstallVjoy}"; Flags: unchecked
-Name: hidhide; Description: "{cm:InstallHidhide}"; Flags: unchecked
 Name: desktopicon; Description: "{cm:Desktop}"; Flags: unchecked
 
 [Files]
@@ -63,40 +61,7 @@ Name: "{autodesktop}\HOSAS Bridge"; Filename: "{app}\HOSASBridge.exe"; Tasks: de
 Filename: "{app}\HOSASBridge.exe"; Description: "{cm:Launch}"; Flags: nowait postinstall skipifsilent runasoriginaluser
 
 [Code]
-var
-  RebootNeeded: Boolean;
-
-procedure InstallDependency(const FileName, ExpectedHash, Params, DisplayName: String);
-var
-  ResultCode: Integer;
-  FullPath: String;
-begin
-  FullPath := ExpandConstant('{app}\dependencies\') + FileName;
-  if CompareText(GetSHA256OfFile(FullPath), ExpectedHash) <> 0 then
-    RaiseException(DisplayName + ' checksum mismatch. Installation stopped.');
-  WizardForm.StatusLabel.Caption := 'Installing ' + DisplayName + '...';
-  if not Exec(FullPath, Params, '', SW_SHOWNORMAL, ewWaitUntilTerminated, ResultCode) then
-    RaiseException('Unable to start ' + DisplayName + ' installer.');
-  if ResultCode = 3010 then RebootNeeded := True
-  else if ResultCode <> 0 then
-    RaiseException(DisplayName + ' installer failed with code ' + IntToStr(ResultCode) + '. Run HOSAS Bridge Devices setup to repair.');
-end;
-
-procedure CurStepChanged(CurStep: TSetupStep);
-begin
-  if CurStep = ssPostInstall then begin
-    if WizardIsTaskSelected('vjoy') then
-      InstallDependency('vJoySetup.exe', 'EF569A3105CD301B89580F18F60C66B339E95296ACF2C0DFCAF4B4BBF8AB68FE', '/NORESTART /COMPONENTS="Apps\vJoyConf"', 'vJoy 2.2.2');
-    if WizardIsTaskSelected('hidhide') then
-      InstallDependency('HidHideSetup.exe', 'F4BBBCB82E6258641B887C74BC81C4C5F66E4AA811808DFC304347687B7605F6', '', 'HidHide 1.5.230');
-  end;
-end;
-
-function NeedRestart(): Boolean;
-begin
-  Result := RebootNeeded;
-end;
-
+// Driver setup is explicit in the application Devices page; never nest it in app installation.
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 var
   ResultCode: Integer;

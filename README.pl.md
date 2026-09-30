@@ -8,7 +8,7 @@
 
 HOSAS Bridge pomaga, gdy gra myli identyczne joysticki. Łączy rozpoznawanie urządzeń, mapowanie, wirtualny kontroler i ukrywanie fizycznych drążków w jednej aplikacji Windows.
 
-**0.9.0-beta.2 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
+**0.9.0-beta.3 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
 
 ## Możliwości
 
@@ -16,7 +16,7 @@ Rozpoznawanie ruchem, trwały vJoy, konfiguracja HidHide, Hybrid i CombinedVirtu
 
 ## Pierwsze uruchomienie
 
-1. Pobierz instalator lub ZIP z [GitHub Releases](https://github.com/Metruu1337/HOSAS-Bridge/releases). Jeśli nie ma jeszcze wydania, trwa przygotowanie paczek. Zainstaluj aplikację lub rozpakuj cały ZIP. Opcje instalacji sterowników są odznaczone, żeby aktualizacja nie reinstalowała działających sterowników.
+1. Pobierz instalator lub ZIP z [GitHub Releases](https://github.com/Metruu1337/HOSAS-Bridge/releases). Jeśli nie ma jeszcze wydania, trwa przygotowanie paczek. Zainstaluj aplikację lub rozpakuj cały ZIP. Instalator aplikacji nie uruchamia instalatorów sterowników. Brakujące sterowniki zainstaluj później w zakładce Devices (Urządzenia). Domyślnym językiem pierwszego uruchomienia jest angielski; polski można wybrać w ustawieniach.
 2. W Urządzeniach przejdź kreator: sprawdź sterowniki, doinstaluj brakujące, napraw urządzenie wirtualne i zezwól aplikacji na dostęp przez HidHide.
 3. Rozpoznaj prawy i lewy drążek ruchem. Wybierz WARDOGS + Dual T.16000M, uniwersalny HOSAS albo własne ustawienia. Zastosowanie ustawień resetuje strojenie/przycisk trybu — pomiń je, jeśli zachowujesz obecną konfigurację.
 4. Przetestuj wejście, opcjonalnie przypisz tryb, napraw ukrywanie i zakończ konfigurację.

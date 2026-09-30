@@ -4,7 +4,7 @@ namespace HOSASBridge.Infrastructure;
 
 public sealed record UserSettings
 {
-    public string Language { get; init; } = System.Globalization.CultureInfo.InstalledUICulture.TwoLetterISOLanguageName == "pl" ? "pl" : "en";
+    public string Language { get; init; } = "en";
     public bool StartBridgeAutomatically { get; init; }
     public bool StartMinimized { get; init; }
     public bool CloseToTray { get; init; } = true;

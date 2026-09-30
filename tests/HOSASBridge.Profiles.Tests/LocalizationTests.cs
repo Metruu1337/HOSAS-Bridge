@@ -28,10 +28,11 @@ public sealed class LocalizationTests
             Assert.Equal(Tokens(pair.Key), Tokens(pair.Value));
         }
     }
-    [Fact] public void PolishDefaultAndEnglishPersistence()
+    [Fact] public void EnglishDefaultAndExplicitPolishPersistence()
     {
-        var settings = new HOSASBridge.Infrastructure.UserSettings(); Assert.Equal(System.Globalization.CultureInfo.InstalledUICulture.TwoLetterISOLanguageName == "pl" ? "pl" : "en", settings.Language);
-        var copy = JsonSerializer.Deserialize<HOSASBridge.Infrastructure.UserSettings>(JsonSerializer.Serialize(settings with { Language = "en" })); Assert.Equal("en", copy!.Language);
+        var settings = new HOSASBridge.Infrastructure.UserSettings(); Assert.Equal("en", settings.Language);
+        Assert.Equal("en", JsonSerializer.Deserialize<HOSASBridge.Infrastructure.UserSettings>("{}")!.Language);
+        var copy = JsonSerializer.Deserialize<HOSASBridge.Infrastructure.UserSettings>(JsonSerializer.Serialize(settings with { Language = "pl" })); Assert.Equal("pl", copy!.Language);
     }
     private static string Key(string text) => "L" + Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(text)))[..12];
     [Fact] public void EnglishAndPolishKeysMatchWithoutDuplicates()

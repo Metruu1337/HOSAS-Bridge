@@ -24,7 +24,7 @@ Explicit installer compilation after publish/document copying:
 
 This repository's .tools runtimes are convenience caches, not required/private source. Locked NuGet package versions are committed. To intentionally update dependencies, update references, regenerate lockfiles, review changes and rerun tests.
 
-Artifacts: artifacts/HOSASBridge-0.9.0-beta.2-win-x64.zip; artifacts/installer/HOSASBridge-0.9.0-beta.2-win-x64-Setup.exe; artifacts/SHA256SUMS.txt; artifacts/SBOM.cdx.json; artifacts/build-metadata.json; test-results; ui-smoke-pl/en.
+Artifacts: artifacts/HOSASBridge-0.9.0-beta.3-win-x64.zip; artifacts/installer/HOSASBridge-0.9.0-beta.3-win-x64-Setup.exe; artifacts/SHA256SUMS.txt; artifacts/SBOM.cdx.json; artifacts/build-metadata.json; test-results; ui-smoke-pl/en.
 
 HOSASBRIDGE_DATA selects an isolated app-data folder. Smoke tests render real WPF pages/wizard states without installing drivers, feeding vJoy or modifying HidHide; disconnected screenshots are not hardware acceptance. Smoke uses a separate instance namespace so a running installed Bridge is not interrupted.
 

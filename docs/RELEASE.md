@@ -1,10 +1,10 @@
 # Release and verification
 
-First public version: 0.9.0-beta.2, not 1.0.0. Earlier local 1.0.0 labels were development packages.
+First public version: 0.9.0-beta.3, not 1.0.0. Earlier local 1.0.0 labels were development packages.
 
 1. Configure the real public repository URL, protected branch/tags and release environment reviewers; enable private vulnerability reporting.
 2. Review commit, license inventory, automated tests and manual owner checklist.
-3. Push matching tag v0.9.0-beta.2. CI verifies version, restores lockfiles, builds/tests and packages unsigned candidates.
+3. Push matching tag v0.9.0-beta.3. CI verifies version, restores lockfiles, builds/tests and packages unsigned candidates.
 4. Download public-beta-candidate from that run. Publish those files and notes without rebuilding. This workflow uploads candidates; public publication remains a maintainer action.
 5. CI attests ZIP, installer and SBOM when supported. Failure fails the job; never claim unexecuted provenance.
 6. Compare PowerShell Get-FileHash -Algorithm SHA256 results with SHA256SUMS.txt. This checks integrity relative to the checksum file.

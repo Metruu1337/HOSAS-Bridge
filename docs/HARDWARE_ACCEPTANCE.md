@@ -23,7 +23,7 @@ Record version/commit, Windows/game versions, hardware and USB layout. All boxes
 - [ ] Clean Windows VM install; signed drivers, reboot and first-run.
 - [ ] Upgrade: preserve settings/mappings/bindings; no unnecessary driver reinstall.
 - [ ] Uninstall: restore only owned hiding rules; keep shared drivers; other software works.
-- [ ] Polish Windows defaults PL; other defaults EN; explicit choice persists.
+- [ ] First launch defaults to English on every Windows language; explicit PL/EN choice persists.
 - [ ] Export/import across computers: no instance IDs; local bindings retained.
 - [ ] Corrupt settings/profile backup recovery.
 - [ ] Diagnostic ZIP inspection/redaction before sharing.

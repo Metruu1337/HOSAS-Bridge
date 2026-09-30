@@ -8,7 +8,7 @@ Candidate: 0.9.0-beta.2. This is preparation for public release, not a claim of 
 4. Public UX: nine-step setup, optional mode binding, status refresh feedback, generic roles, copy sanitized info, diagnostics/log access, duplicate/reset, original icon/tray.
 5. Hardware: Right/Left/Throttle/Pedals/Other, manufacturer/capabilities/axis descriptors and safe identity resolution. One device per role, one output.
 6. Profiles: legacy migration, atomic logical profile writes/backups, separate local sidecar, export without IDs/process association, receiver bindings preserved. Embedded presets remain immutable.
-7. Localization: EN/PL catalogs, OS-based first-run default, persistent override, explicit restart instruction; CI validates key/placeholder/markup consistency.
+7. Localization: EN/PL catalogs, English first-run default, persistent override, explicit restart instruction; CI validates key/placeholder/markup consistency.
 8. Setup: corrected HidHide arguments, visible vJoy installer, serialized elevated operations, optional unchecked driver tasks on updates, conservative uninstall/settings choice.
 9. Trust: source API review documented; no telemetry/keyboard logging/game memory/injection/automation. Explicit clipboard write only. Neutral-only output health test. Local diagnostic redaction.
 10. CI: read-only PR build/test/analyzers/localization; version-tagged protected-environment candidate packaging, checksums/SBOM/attestation. No remote/public run exists yet.

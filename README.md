@@ -8,7 +8,7 @@
 
 Clean controller routing for games that don’t play nicely with multiple sticks. HOSAS Bridge combines controller identification, mapping, a persistent virtual joystick and device hiding in one Windows application.
 
-**0.9.0-beta.2 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
+**0.9.0-beta.3 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
 
 ## Features
 
@@ -18,12 +18,12 @@ Clean controller routing for games that don’t play nicely with multiple sticks
 - Persistent virtual controller and hiding; feeder start/stop does not recreate devices.
 - Portable JSON profiles, calibration, curves, deadzones, saturation and inherited Toggle/Hold modes.
 - WARDOGS NORMAL/MINIGUN: only Pitch receives an additional inversion.
-- PL/EN interface, tray, Windows startup, local diagnostics and conservative repair.
+- English by default, optional Polish interface, tray, Windows startup, local diagnostics and conservative repair.
 
 ## Quick start
 
 1. Obtain the installer or portable ZIP from [GitHub Releases](https://github.com/Metruu1337/HOSAS-Bridge/releases). If no release is listed yet, packaging is still in progress.
-2. Install the application. Driver tasks are optional and unchecked to avoid reinstalling shared drivers on upgrades.
+2. Install the application. The application installer does not launch driver installers. Install missing drivers explicitly from Devices after application setup.
 3. In Devices follow the guide: check drivers, install missing dependencies, repair the virtual controller, allow the application through HidHide and identify each stick by movement.
 4. Choose WARDOGS + Dual T.16000M, Generic HOSAS or Custom. Applying a preset resets tuning/mode bindings; skip this if retaining an existing setup.
 5. Test live input, optionally bind modes, repair hiding, finish setup and start the bridge.
