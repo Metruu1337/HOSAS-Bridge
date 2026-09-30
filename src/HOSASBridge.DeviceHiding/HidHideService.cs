@@ -38,7 +38,8 @@ public sealed class HidHideService : IDeviceHidingService
     public async Task<HidingHealth> CheckAsync(Profile profile, string executable, CancellationToken token)
     {
         var cli = FindCli();
-        if (cli is null) return new(false, false, false, false, false, "HidHide is not installed.");
+        var needsHiding = Enum.GetValues<DeviceRole>().Any(r => profile.Route(r).Hidden);
+        if (cli is null) return new(false, false, false, false, false, needsHiding ? "HidHide is not installed." : "Hiding is optional for this profile. Bind only vJoy in the game.") { UnhiddenInputsReady = !needsHiding };
         try
         {
             var output = await RunAsync(cli, ["--app-list", "--dev-list", "--cloak-state", "--inv-state"], token).ConfigureAwait(false);
@@ -49,7 +50,8 @@ public sealed class HidHideService : IDeviceHidingService
             var virtualVisible = !output.Contains("VID_1234&", StringComparison.OrdinalIgnoreCase);
             var matches = profile.Devices.Keys.All(role => Hidden(role) == profile.Route(role).Hidden);
             var healthy = allowed && active && virtualVisible && matches;
-            return new(true, allowed, right, left, active, healthy ? "Device hiding ready · persisted in Windows" : !virtualVisible ? "An existing HidHide rule hides vJoy. Restore that rule before using the bridge." : "Device hiding needs repair or joystick identification.", virtualVisible) { PolicyMatches = matches };
+            var unhiddenReady = !needsHiding && virtualVisible && matches && !output.Contains("--inv-on", StringComparison.Ordinal);
+            return new(true, allowed, right, left, active, unhiddenReady ? "Hiding is optional for this profile. Bind only vJoy in the game." : healthy ? "Device hiding ready · persisted in Windows" : !virtualVisible ? "An existing HidHide rule hides vJoy. Restore that rule before using the bridge." : "Device hiding needs repair or joystick identification.", virtualVisible) { PolicyMatches = matches, UnhiddenInputsReady = unhiddenReady };
         }
         catch (Exception ex) when (ex is IOException or System.ComponentModel.Win32Exception) { return new(true, false, false, false, false, ex.Message); }
     }

@@ -2,6 +2,7 @@ using HOSASBridge.App.Services;
 using HOSASBridge.Infrastructure;
 using HOSASBridge.DeviceHiding;
 using HOSASBridge.Setup;
+using HOSASBridge.Profiles;
 using System.Windows;
 
 namespace HOSASBridge.App.ViewModels;
@@ -60,6 +61,8 @@ public sealed class DevicesViewModel : ObservableObject
         RepairHiding = new(async () =>
         {
             await runtime.StopAsync();
+            if (session.Current.Devices.Values.Any(d => d.Backend == "XInput"))
+                throw new InvalidOperationException("Xbox player slots cannot be hidden automatically. Use the Xbox gamepad preset and bind only vJoy in the game.");
             await SetupOperations.RunElevatedAsync("hiding", AppPaths.Profile, CancellationToken.None);
             await CheckHealthAsync(); notify("HidHide configuration saved. The current executable is allowed to read hidden devices.");
         }, error);
@@ -81,7 +84,7 @@ public sealed class DevicesViewModel : ObservableObject
             finish(); Instructions = "Setup complete. Use Diagnostics for the live axis test, then start the bridge.";
         }, error);
     }
-    public bool IsHealthy => Health is { Installed: true, Whitelisted: true, Active: true, VirtualVisible: true, PolicyMatches: true };
+    public bool IsHealthy => Health is { UnhiddenInputsReady: true } || Health is { Installed: true, Whitelisted: true, Active: true, VirtualVisible: true, PolicyMatches: true };
     public async Task CheckHealthAsync()
     {
         Health = await hiding.CheckAsync(session.Current, Environment.ProcessPath!, CancellationToken.None);
@@ -124,6 +127,6 @@ public sealed class DevicesViewModel : ObservableObject
         { Instructions = L.F("This device is already {0}. Move the other physical stick; use Reset roles if you need to swap them.", L.T(assigned.Key.ToString())); evidence = 0; return; }
         var roles = new Dictionary<DeviceRole, DeviceIdentity>(session.Current.Devices) { [role] = device };
         identifying = null; runtime.StopIdentification(); session.Save(session.Current with { Devices = roles });
-        Instructions = L.F("{0} identified: {1}. {2}", L.T(role.ToString()), device.ProductName, L.T(roles.Count == 2 ? "Next: Repair Device Hiding, test axes in Diagnostics and bind MINIGUN in Modes." : "Now identify the other joystick."));
+        Instructions = L.F("{0} identified: {1}. {2}", L.T(role.ToString()), device.ProductName, L.T(PresetCatalog.IsGamepad(session.Current) ? "Gamepad ready for Diagnostics. Test both sticks, both triggers, buttons and D-pad, then start the bridge." : roles.Count == 2 ? "Next: Repair Device Hiding, test axes in Diagnostics and bind MINIGUN in Modes." : "Now identify the other joystick."));
     }
 }

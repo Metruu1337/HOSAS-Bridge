@@ -9,5 +9,6 @@
   <ProjectReference Include="../../src/HOSASBridge.Infrastructure/HOSASBridge.Infrastructure.csproj" />
   <ProjectReference Include="../../src/HOSASBridge.Output.VJoy/HOSASBridge.Output.VJoy.csproj" />
   <Using Include="Xunit" />
+  <ProjectReference Include="../../src/HOSASBridge.Input.DirectInput/HOSASBridge.Input.DirectInput.csproj" />
  </ItemGroup>
 </Project>

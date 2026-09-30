@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.0-beta.4 — gamepad input
+
+Added Xbox/XInput input with independent triggers and Xbox/PlayStation single-pad presets. Added gamepad axis labels, optional hiding for visible-input profiles and connection-scoped Xbox assignments. Existing joystick input remains available. See docs/GAMEPADS.md for setup and hardware validation limits.
+
+
 ## 0.9.0-beta.3 — installation and language fixes
 
 English is the default for new settings, regardless of Windows language. Explicit saved Polish/English preferences remain unchanged.

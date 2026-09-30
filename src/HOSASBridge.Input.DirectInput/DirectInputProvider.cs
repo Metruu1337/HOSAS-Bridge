@@ -46,6 +46,8 @@ public sealed class DirectInputProvider : IPhysicalInputProvider
                 var vid = device.Properties.VendorId;
                 if (vid == 0x1234 && device.Properties.ProductId == 0xBEAD) continue;
                 var path = device.Properties.InterfacePath;
+                // Xbox controllers are read through XInput so LT and RT remain independent.
+                if (path.Contains("IG_", StringComparison.OrdinalIgnoreCase)) continue;
                 var metadata = WindowsDeviceMetadata.Read(path);
                 var caps = device.Capabilities;
                 found.Add(new(d.InstanceGuid, metadata.InstanceId, path, metadata.ContainerId, metadata.Location, d.ProductName, vid, device.Properties.ProductId)

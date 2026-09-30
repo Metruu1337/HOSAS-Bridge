@@ -8,7 +8,7 @@
 
 Clean controller routing for games that don’t play nicely with multiple sticks. HOSAS Bridge combines controller identification, mapping, a persistent virtual joystick and device hiding in one Windows application.
 
-**0.9.0-beta.3 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
+**0.9.0-beta.4 — public beta candidate, unsigned.** Existing dual-T.16000M / WARDOGS gameplay was tested by the project owner. The expanded beta still needs the [release acceptance checklist](docs/HARDWARE_ACCEPTANCE.md). Other controllers are not certified. No official vendor/game affiliation.
 
 ## Features
 
@@ -56,3 +56,7 @@ Open source alone does not prove binary/source correspondence. [Tagged CI](.gith
 [FAQ](docs/community/FAQ.md) · [Troubleshooting](TROUBLESHOOTING.md) · [Building](BUILDING.md) · [Architecture](ARCHITECTURE.md) · [Extending](docs/EXTENDING.md) · [Contributing](CONTRIBUTING.md)
 
 MIT licensed. Original icon created for the project using image generation. Thanks to vJoy, HidHide, Vortice, .NET and test-tool authors; see [notices](THIRD-PARTY-NOTICES.md).
+
+## Gamepads / Pady
+
+Xbox / XInput and PlayStation (DualShock 4, DualSense) presets: [setup, mapping and limitations / konfiguracja i ograniczenia](docs/GAMEPADS.md). Physical gamepad acceptance is pending / testy na fizycznych padach pozostają do wykonania.

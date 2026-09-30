@@ -8,7 +8,7 @@
 
 HOSAS Bridge pomaga, gdy gra myli identyczne joysticki. Łączy rozpoznawanie urządzeń, mapowanie, wirtualny kontroler i ukrywanie fizycznych drążków w jednej aplikacji Windows.
 
-**0.9.0-beta.3 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
+**0.9.0-beta.4 — kandydat do publicznej bety, bez podpisu cyfrowego aplikacji.** Właściciel sprawdził wcześniejszą wersję z dwoma T.16000M w WARDOGS. Nowa beta wymaga [odbioru](docs/HARDWARE_ACCEPTANCE.md). Projekt nie jest oficjalnym narzędziem gry ani producentów.
 
 ## Możliwości
 
@@ -42,3 +42,7 @@ Otwarty kod nie potwierdza sam pochodzenia EXE. Proces z tagu tworzy sumy SHA-25
 [Bezpieczeństwo](docs/SECURITY_AND_TRUST.pl.md) · [FAQ](docs/community/FAQ.pl.md) · [Kompilacja](BUILDING.md) · [Pomoc](TROUBLESHOOTING.md) · [Licencje](THIRD-PARTY-NOTICES.md)
 
 Licencja MIT. Dziękujemy autorom vJoy, HidHide, Vortice i .NET.
+
+## Gamepads / Pady
+
+Xbox / XInput and PlayStation (DualShock 4, DualSense) presets: [setup, mapping and limitations / konfiguracja i ograniczenia](docs/GAMEPADS.md). Physical gamepad acceptance is pending / testy na fizycznych padach pozostają do wykonania.

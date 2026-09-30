@@ -59,7 +59,7 @@ public partial class App : Application
             if (!File.Exists(AppPaths.Profile)) repository.Save(AppPaths.Profile, profile);
             var window = new MainWindow(); MainWindow = window;
             var handle = new WindowInteropHelper(window).EnsureHandle();
-            runtime = new(new DirectInputProvider(handle, log), new VJoyAdapter(), profile, log);
+            runtime = new(new ControllerInputProvider(new DirectInputProvider(handle, log), new XInputProvider(new WindowsXInputApi())), new VJoyAdapter(), profile, log);
             var session = new ProfileSession(repository, profile, runtime);
             model = new MainViewModel(runtime, session, log); window.DataContext = model;
             tray = new TrayService(window, model, ExitApplication);

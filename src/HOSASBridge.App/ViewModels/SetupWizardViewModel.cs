@@ -20,7 +20,14 @@ public sealed class SetupWizardViewModel : ObservableObject
     public SetupWizardViewModel(ProfileSession session, Action<Exception> error, Action<string> notify)
     {
         Next = new(() => Step = Math.Min(8, Step + 1)); Back = new(() => Step = Math.Max(0, Step - 1));
-        ApplyPreset = new(() => { session.Save(PresetCatalog.Create(SelectedPreset) with { Devices = session.Current.Devices, VirtualDevice = session.Current.VirtualDevice }); notify("Preset applied. Review mappings before starting."); return Task.CompletedTask; }, error);
+        ApplyPreset = new(() =>
+        {
+            var preset = PresetCatalog.Create(SelectedPreset);
+            // Do not silently reuse a joystick assignment as the new gamepad.
+            session.Save(preset with { Devices = PresetCatalog.IsGamepad(preset) ? [] : session.Current.Devices, VirtualDevice = session.Current.VirtualDevice });
+            notify(PresetCatalog.IsGamepad(preset) ? "Gamepad preset applied. Identify your pad as RIGHT, then bind vJoy in the game. Re-identify Xbox pads after reconnecting or restarting the app." : "Preset applied. Review mappings before starting.");
+            return Task.CompletedTask;
+        }, error);
     }
     public void Reset() => Step = 0;
 }

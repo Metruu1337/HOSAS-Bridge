@@ -87,7 +87,7 @@ public sealed class ProfileViewModel : ObservableObject
             return Task.CompletedTask;
         }, error);
         Duplicate = new(() => { session.Save(session.Current with { ProfileId = Guid.NewGuid().ToString("N"), DisplayName = Name + " " + L.T("Copy") }); return Task.CompletedTask; }, error);
-        ResetPreset = new(() => { session.Save(ProfileDefaults.Wardogs(Routing) with { Devices = session.Current.Devices, VirtualDevice = session.Current.VirtualDevice }); return Task.CompletedTask; }, error);
+        ResetPreset = new(() => { var preset = PresetCatalog.IsGamepad(session.Current) ? PresetCatalog.Create(session.Current.ProfileId == "xbox-gamepad" ? "Xbox gamepad" : "PlayStation gamepad") : ProfileDefaults.Wardogs(Routing); session.Save(preset with { Devices = session.Current.Devices, VirtualDevice = session.Current.VirtualDevice }); return Task.CompletedTask; }, error);
         NewProfile = new(() => { session.Save(ProfileDefaults.Wardogs() with { ProfileId = Guid.NewGuid().ToString("N"), DisplayName = "Custom profile", Devices = session.Current.Devices }); return Task.CompletedTask; }, error);
         SelectProcess = new(() => { var dialog = new OpenFileDialog { Filter = "Game executable (*.exe)|*.exe" }; if (dialog.ShowDialog() == true) { ProcessName = Path.GetFileNameWithoutExtension(dialog.FileName); Changed(nameof(ProcessName)); } });
         session.Changed += Reload; Reload();

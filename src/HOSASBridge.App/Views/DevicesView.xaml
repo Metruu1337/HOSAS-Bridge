@@ -23,6 +23,7 @@
      <WrapPanel><Button Content="{loc:Text 'Move RIGHT stick'}" Command="{Binding Devices.IdentifyRight}"/><Button Content="{loc:Text 'Move LEFT stick'}" Command="{Binding Devices.IdentifyLeft}"/><Button Content="{loc:Text 'Cancel identification'}" Command="{Binding Devices.CancelIdentification}"/></WrapPanel>
     </StackPanel>
     <StackPanel Visibility="{Binding Wizard.Step4, Converter={StaticResource BoolVisibility}}">
+     <TextBlock Text="{loc:Text 'Gamepads: apply the Xbox or PlayStation preset, go Back and identify the pad as RIGHT. Test in Diagnostics. Re-identify Xbox after reconnecting or restarting. Bind only vJoy in the game.'}" Style="{StaticResource Note}"/>
      <ComboBox ItemsSource="{Binding Wizard.Presets}" SelectedItem="{Binding Wizard.SelectedPreset}" HorizontalAlignment="Left"/>
      <Button Content="{loc:Text 'Apply preset'}" Command="{Binding Wizard.ApplyPreset}" HorizontalAlignment="Left"/>
      <TextBlock Text="{loc:Text 'WARDOGS: left stick stays native for Collective; right stick feeds vJoy. Applying a preset resets tuning and mode bindings.'}" Style="{StaticResource Note}"/>

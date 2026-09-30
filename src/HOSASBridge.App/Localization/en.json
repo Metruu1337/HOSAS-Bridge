@@ -314,5 +314,16 @@
   "Hidden": "Hidden",
   "Virtualized": "Virtualized",
   "Checks virtual ownership by writing only neutral input, then releases it. Stop the bridge first.": "Checks virtual ownership by writing only neutral input, then releases it. Stop the bridge first.",
-  "Assign all mapped controller roles on the Devices tab.": "Assign all mapped controller roles on the Devices tab."
+  "Assign all mapped controller roles on the Devices tab.": "Assign all mapped controller roles on the Devices tab.",
+  "Left trigger": "Left trigger",
+  "Hiding is optional for this profile. Bind only vJoy in the game.": "Hiding is optional for this profile. Bind only vJoy in the game.",
+  "Right stick X": "Right stick X",
+  "Xbox player slots cannot be hidden automatically. Use the Xbox gamepad preset and bind only vJoy in the game.": "Xbox player slots cannot be hidden automatically. Use the Xbox gamepad preset and bind only vJoy in the game.",
+  "Gamepad preset applied. Identify your pad as RIGHT, then bind vJoy in the game. Re-identify Xbox pads after reconnecting or restarting the app.": "Gamepad preset applied. Identify your pad as RIGHT, then bind vJoy in the game. Re-identify Xbox pads after reconnecting or restarting the app.",
+  "Left stick Y": "Left stick Y",
+  "Right stick Y": "Right stick Y",
+  "Left stick X": "Left stick X",
+  "Right trigger": "Right trigger",
+  "Gamepad ready for Diagnostics. Test both sticks, both triggers, buttons and D-pad, then start the bridge.": "Gamepad ready for Diagnostics. Test both sticks, both triggers, buttons and D-pad, then start the bridge.",
+  "Gamepads: apply the Xbox or PlayStation preset, go Back and identify the pad as RIGHT. Test in Diagnostics. Re-identify Xbox after reconnecting or restarting. Bind only vJoy in the game.": "Gamepads: apply the Xbox or PlayStation preset, go Back and identify the pad as RIGHT. Test in Diagnostics. Re-identify Xbox after reconnecting or restarting. Bind only vJoy in the game."
 }

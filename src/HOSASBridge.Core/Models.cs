@@ -11,6 +11,7 @@ public enum BindingBehavior { Toggle, Hold }
 public sealed record DeviceIdentity(Guid InstanceGuid, string InstanceId, string InterfacePath,
     Guid ContainerId, string Location, string ProductName, int VendorId, int ProductId)
 {
+    public string Backend { get; init; } = "DirectInput";
     public string Manufacturer { get; init; } = "";
     public int AxisCount { get; init; }
     public int ButtonCount { get; init; }
@@ -95,6 +96,7 @@ public sealed class VirtualState
 public sealed record Health(bool Ready, string Detail);
 public sealed record HidingHealth(bool Installed, bool Whitelisted, bool RightHidden, bool LeftHidden, bool Active, string Detail, bool VirtualVisible = true)
 {
+    public bool UnhiddenInputsReady { get; init; }
     public bool PolicyMatches { get; init; } = true;
 }
 public sealed record AxisSample(DeviceRole Role, PhysicalAxis Source, double Raw, double Normalized, double Transformed, double? Output);
